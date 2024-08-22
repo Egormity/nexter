@@ -1,0 +1,91 @@
+// COLOR VARIABLES
+$color-primary: #c69963;
+$color-primary-dark: #b28451;
+
+$color-secondary: #101d2c;
+
+$color-grey-light-1: #f9f7f6;
+$color-grey-light-2: #aaa;
+
+$color-grey-dark-1: #54483a;
+$color-grey-dark-2: #6d5d4b;
+
+$color-white: #fff;
+$color-black: #000;
+
+// FONT VARIABLES
+$font-primary: 'Nunito', sans-serif;
+$font-display: 'Josefin Sans', sans-serif;
+
+// RESPONSIVE DESIGN
+$px1200: 75em;
+$px1000: 62.5em;
+$px800: 50em;
+$px600: 37.5em;
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+*button {
+  cursor: pointer;
+}
+
+*ul {
+  list-style: none;
+}
+
+*a {
+  color: inherit;
+  text-decoration: none;
+}
+
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-size: 62.5%;
+
+  @media screen and (max-width: $px1200) {
+    font-size: 50%;
+  }
+}
+
+body {
+  font-family: $font-primary;
+  color: $color-grey-dark-2;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+.container {
+  display: grid;
+  grid-template-rows: 80vh min-content 40vw repeat(3, min-content);
+  // prettier-ignore
+  grid-template-columns:
+  [sidebar-start] 8rem
+  [sidebar-end full-start] minmax(6rem, 1fr)
+  [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end])
+  [center-end] minmax(6rem, 1fr) [full-end];
+
+  @media screen and (max-width: $px1000) {
+    grid-template-rows: 6rem 80vh min-content 40vw repeat(3, min-content);
+    // prettier-ignore
+    grid-template-columns:
+  [full-start] minmax(6rem, 1fr)
+  [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end])
+  [center-end] minmax(6rem, 1fr) [full-end];
+  }
+
+  @media screen and (max-width: $px800) {
+    grid-template-rows: 6rem calc(100vh - 6rem) repeat(6, min-content);
+    // prettier-ignore
+    grid-template-columns:
+  [full-start] minmax(6rem, 1fr)
+  [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end])
+  [center-end] minmax(6rem, 1fr) [full-end];
+  }
+}

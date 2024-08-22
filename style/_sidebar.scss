@@ -1,0 +1,55 @@
+.sidebar {
+  background-color: $color-primary;
+  grid-column: sidebar-start / sidebar-end;
+  grid-row: 1 / -1;
+  display: flex;
+  justify-content: center;
+
+  @media screen and (max-width: $px1000) {
+    grid-column: 1 / -1;
+    grid-row: 1 / span 1;
+    justify-content: end;
+    align-items: center;
+  }
+
+  &-btn,
+  &-btn::before,
+  &-btn::after {
+    background-color: $color-white;
+    height: 0.2rem;
+    width: 4.5rem;
+  }
+
+  &-btn {
+    border: none;
+    border-radius: 0;
+    margin-top: 3.5rem;
+
+    &::before,
+    &::after {
+      content: '';
+      display: block;
+    }
+
+    &::before {
+      transform: translateY(-1.5rem);
+    }
+
+    &::after {
+      transform: translateY(1.3rem);
+    }
+
+    @media screen and (max-width: $px1000) {
+      margin-top: 0;
+      margin-right: 3.5rem;
+
+      &::before {
+        transform: translateY(-1.2rem);
+      }
+
+      &::after {
+        transform: translateY(1rem);
+      }
+    }
+  }
+}
